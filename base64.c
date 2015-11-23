@@ -54,12 +54,12 @@ char *base64_encode(const char* data, int data_len)
 			tmp++;
 			temp++;
 		}
-		prepare = (prepare<<((3-temp)*8));
-		for (i = 0; i < 4 ;i++ ) {
+		prepare = (prepare << ((3 - temp) * 8));
+		for (i = 0; i < 4; i++) {
 			if (temp < i) {
 				changed[i] = 0x40;
 			} else {
-				changed[i] = (prepare>>((3-i)*6)) & 0x3F;
+				changed[i] = (prepare >> ((3 - i) * 6)) & 0x3F;
 			}
 			*f = base[(int)changed[i]];
 			f++;
@@ -131,12 +131,12 @@ char *base64_decode(const char *data, int *length)
 			temp++;
 			tmp++;
 		}
-		prepare = prepare << ((4-temp) * 6);
-		for (i=0; i<3 ;i++ ) {
-			if (i == temp) {
+		prepare = prepare << ((4 - temp) * 6);
+		for (i=0; i<3 ;i++) {
+			if (i == temp - 1) {
 				break;
 			}
-			*f = (char)((prepare>>((2-i)*8)) & 0xFF);
+			*f = (char)((prepare>>((2 - i)*8)) & 0xFF);
 			f++;
 		}
 	}
