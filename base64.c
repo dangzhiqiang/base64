@@ -82,7 +82,7 @@ char *base64_decode(const char *data, int *length)
 	int data_len = 0;
 	int ret_len = 0;
 
-	if(data == NULL)
+	if (data == NULL)
 		return NULL;
 
 	data_len = strlen(data);
